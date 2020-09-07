@@ -21,8 +21,11 @@ int main(){
   bool fwn;
   fwn=true;
 
-  newf.open (path+"new_style");
-  ifstream rfile(path+"libraryroot.css");
+  remove((path+"old_libraryroot.css").c_str());
+  rename((path+"libraryroot.css").c_str(),(path+"old_libraryroot.css").c_str());
+
+  newf.open (path+"libraryroot.css");
+  ifstream rfile(path+"old_libraryroot.css");
   while (getline (rfile, bft)) {
     switch(flag){
       case 0: newf << bft+"\n"; break;
@@ -35,8 +38,9 @@ int main(){
 
   newf.close();
   rfile.close();
-  rename((path+"libraryroot.css").c_str(),(path+"old_libraryroot.css").c_str());
-  rename((path+"new_style").c_str(),(path+"libraryroot.css").c_str());
+  //rename((path+"libraryroot.css").c_str(),(path+"old_libraryroot.css").c_str());
+  //rename((path+"new_style").c_str(),(path+"libraryroot.css").c_str());
+
 
   return 0;
 };
