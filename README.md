@@ -1,4 +1,4 @@
-# .steam_styler{};
+# .steam_{styler;}
 
 Simple, ready-to-use program that alters Steam's library style.
 
